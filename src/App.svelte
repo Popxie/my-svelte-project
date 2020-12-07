@@ -3,6 +3,7 @@
 	import Info from './Info.svelte'
 	import Each from './Each.svelte'
 	import Event from './Event.svelte'
+	import Store from './Store/Store.svelte'
 
 	const pkg = {
 		name: 'svelte',
@@ -11,7 +12,12 @@
 		speed: 'blazing',
 		website: 'https://svelte.dev'
 	}
-	$: console.log('$$props11:', $$props)
+	function sayHello(event) {
+		const { detail: { text } } = event
+		console.log('event: ', event)
+		alert(text)
+
+	}
 </script>
 
 <main>
@@ -23,7 +29,9 @@
 	<hr>
 	<Each />
 	<hr>
-	<Event/>
+	<Event on:message={sayHello}/>
+	<hr>
+	<Store />
 </main>
 
 <style>

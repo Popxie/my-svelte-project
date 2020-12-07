@@ -1,4 +1,5 @@
 <script>
+    import EventSon from './EventSon.svelte'
     let m = { x: 0, y: 0 }
     function handleMousemove(event) {
         m.x = event.clientX;
@@ -7,7 +8,8 @@
 </script>
 
 <div on:mousemove={handleMousemove}>
-    The mouse position is {m.x} x {m.y}
+    <div>The mouse position is {m.x} x {m.y}</div>
+    <EventSon on:message/>
 </div>
 
 <style>
